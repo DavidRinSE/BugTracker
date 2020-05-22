@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Home</h1>
+    <p>
+        <a href="{{ newticket }}">New Ticket</a>
+        <a href="{{ account }}">Account</a>
+    </p>
+    {% for list in lists %}
+        <h3>{{ list.0 }} Tickets</h3>
+        <ul>
+            {% for ticket in list.1 %}
+                <li><a href="/tickets/{{ticket.id}}/">{{ticket.title}}</a></li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <a href="{{ logout }}">Logout</a>
+{% endblock %}

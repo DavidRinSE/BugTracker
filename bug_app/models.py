@@ -88,6 +88,7 @@ class Ticket(models.Model):
         self.status = "Done"
         self.userAssigned = None
         self.userCompleted = user
+        self.save()
     # When a ticket is Done, these change as follows:
 
     #     Status: Done_
@@ -98,6 +99,7 @@ class Ticket(models.Model):
         self.status = "Invalid"
         self.userAssigned = None
         self.userCompleted = None
+        self.save()
     # When a ticket is marked as Invalid, these change as follows:
 
     #     Status: Invalid

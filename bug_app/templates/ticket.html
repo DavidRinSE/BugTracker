@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Ticket</h1>
+    <h3>{{ticket.title}}</h3>
+    <p>{{ticket.description}}</p>
+    <p>{{ticket.status}}</p>
+    <ul>
+        <li>Date: {{ticket.dateFiled}}</li>
+        <li>User: {{ticket.userFiled}}</li>
+        <li>Assigned: {{ticket.userAssigned}}</li>
+        <li>Completed by: {{ticket.userCompleted}}</li>
+    </ul>
+    <p>
+        {% if assign_self %}
+            <a href="{{assign_self}}">Assign to self</a>
+        {% endif %}
+        {% if complete %}
+            <a href="{{complete}}">Complete</a>
+        {% endif %}
+        {% if invalid %}
+            <a href="{{invalid}}">Invalid</a>
+        {% endif %}
+        {% if edit %}
+            <a href="{{edit}}">Edit</a>
+        {% endif %}
+    </p>
+    <a href="{{homepage}}">Home</a>
+{% endblock %}

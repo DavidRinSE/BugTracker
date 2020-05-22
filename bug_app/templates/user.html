@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>My profile</h1>
+    <p>{{ user.username }}</p>
+    {% for list in lists %}
+        <h3>{{ list.0 }} Tickets</h3>
+        <ul>
+            {% for ticket in list.1 %}
+                <li><a href="/tickets/{{ticket.id}}/">{{ticket.title}}</a></li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <p><a href="{{ homepage }}">Home</a> <a href="{{ logout }}">Logout</a></p>
+{% endblock %}
